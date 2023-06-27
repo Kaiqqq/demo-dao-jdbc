@@ -52,7 +52,7 @@ public class SellerDaoJDBC implements SellerDao {
             }
 
         } catch (SQLException e) {
-            System.out.println(e.getMessage());
+            throw new DbException(e.getMessage());
         } finally {
             DB.closeStatement(st);
         }
