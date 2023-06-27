@@ -22,9 +22,13 @@ public class Program2 {
         System.out.println("Department successfully inserted!, department id: " + department.getId());*/
 
         System.out.println("\n== Test 2: department findById method ===");
-        System.out.print("Write department ID to be found: ");
-        id = sc.nextInt();
-        Department dep = departmentDao.findById(id);
+        Department dep = departmentDao.findById(3);
+        System.out.println(dep);
+
+        System.out.println("\n== Test 2: department update method ===");
+        dep.setName("Logistics");
+        departmentDao.update(dep);
+        dep = departmentDao.findById(3);
         System.out.println(dep);
 
         sc.close();
