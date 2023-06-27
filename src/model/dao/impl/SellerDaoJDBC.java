@@ -12,6 +12,8 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import static model.dao.impl.InstantiateSeller.*;
+
 public class SellerDaoJDBC implements SellerDao {
 
     private Connection conn;
@@ -130,25 +132,6 @@ public class SellerDaoJDBC implements SellerDao {
             DB.closeStatement(st);
             DB.closeResultSet(rs);
         }
-    }
-
-    private Seller instantiateSeller(ResultSet rs, Department dep) throws SQLException{
-        Seller seller = new Seller();
-        seller.setId(rs.getInt("Id"));
-        seller.setName(rs.getString("Name"));
-        seller.setEmail(rs.getString("Email"));
-        seller.setBirthDate(rs.getDate("BirthDate"));
-        seller.setBaseSalary(rs.getDouble("BaseSalary"));
-        seller.setDeparment(dep);
-
-        return seller;
-    }
-
-    private Department instantiateDepartment(ResultSet rs) throws SQLException {
-        Department dep = new Department();
-        dep.setId(rs.getInt("DepartmentId"));
-        dep.setName(rs.getString("DepName"));
-        return dep;
     }
 
     @Override

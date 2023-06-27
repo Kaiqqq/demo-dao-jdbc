@@ -12,7 +12,7 @@ public class Program2 {
 
         Scanner sc =  new Scanner(System.in);
         DepartmentDao departmentDao = DaoFactory.createDepartmentDao();
-
+        int id;
 
         /*System.out.println("\n== Test 1: department insert method ===");
         System.out.print("\nName of the department: ");
@@ -21,8 +21,13 @@ public class Program2 {
         departmentDao.insert(department);
         System.out.println("Department successfully inserted!, department id: " + department.getId());*/
 
-        
+        System.out.println("\n== Test 2: department findById method ===");
+        System.out.print("Write department ID to be found: ");
+        id = sc.nextInt();
+        Department dep = departmentDao.findById(id);
+        System.out.println(dep);
 
+        sc.close();
     }
 
 }
